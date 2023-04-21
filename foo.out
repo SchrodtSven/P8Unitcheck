@@ -1,0 +1,3 @@
+
+'successfull', 'success', 'Success', 'Failed', 'failed', 'failure'
+'[1;37m[41msuccessfull[0m', '[1;37m[41msuccess[0m', '[1;37m[41mSuccess[0m', '[42mFailed[0m', '[42mfailed[0m', '[42mfailure[0m'

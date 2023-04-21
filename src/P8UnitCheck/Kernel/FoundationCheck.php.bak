@@ -1,0 +1,196 @@
+<?php
+
+declare(strict_types=1);
+/**
+ *  Foundation class for unit checks
+ * 
+ * @author Sven Schrodt<sven@schrodt.club>
+ * @link https://github.com/SchrodtSven/P8UnitCheck
+ * @package P8UnitCheck
+ * @version 0.1
+ * @since 2023-04-09
+ */
+
+namespace P8UnitCheck\Kernel;
+use P8UnitCheck\Entity\Config;
+use P8UnitCheck\Entity\Failure;
+use P8UnitCheck\Entity\Success;
+use P8UnitCheck\Type\StringType;
+use P8UnitCheck\Type\ListType;
+use P8UnitCheck\Kernel\TraceParser;
+use P8UnitCheck\Shell\Cli;
+use P8UnitCheck\Data\TextTransformer;
+use P8UnitCheck\Kernel\Config\Messages;
+
+class FoundationCheck
+{
+    protected Cli $cli;
+
+    protected Messages $messages;
+
+    protected bool $verbose = false;
+
+    //@FIXME -> use checks & expectations numbering!!!
+    protected int $checks = 0;
+
+    protected int $expectations = 0;
+
+    protected int $failure = 0;
+
+    protected int $success = 0;
+
+    protected string $result;
+    
+    protected ListType $history;
+
+    protected TraceParser $parser;
+
+    protected TextTransformer $textTransformer;
+
+    public function __construct(protected Config $config)
+    {
+        //  \var_export($this->config->getShowColours());die;
+        $this->cli = new Cli();
+        $this->textTransformer = new TextTransformer();
+        $this->messages = new Messages();
+        $this->history = new ListType();
+        $this->parser = new TraceParser();
+    }
+
+    /**
+     * Main method used to expect results
+     * 
+     * @FIXME ->get fil, line etc. from $e->trace()[1]  --> nested methods!!!
+     * 
+     */
+    public function expect(mixed $expression, string $message='Foo') 
+    {
+        try {
+           // \var_dump($expression);
+            assert($expression, new CheckError);
+          //  $this->result = $this->cli->getColouredString('successfull', null, 'green');
+            $msg = new Success();
+            $msg->setMessageText($this->textTransformer->colourize('Success'));
+            $msg->setShortResult($this->cli->getColouredString('S', 'green'));
+            $this->history->push($msg); 
+            $this->success++;        
+            
+        } catch (CheckError $e) {
+
+
+            // @FIXME ->get fil, line etc. from $e->trace()[1]  --> nested methods!!!
+
+            /*
+            $this->result = $this->cli->getColouredString('failed', 'white  ', 'red');
+            $this->result .= sprintf('Failed expecting that %s is true', \var_export($expression, true),  PHP_EOL);
+            $this->result .= sprintf(' - in %s line %u', $e->getFile(), $e->getLine());
+            */
+            //$this->result .= sprintf('%s%s', PHP_EOL, \var_export($e->getTrace(), true));
+            
+           /* 
+           if($this->verbose) {
+                $parsr = new TraceParser();
+                \var_export($parsr->traceStackPartToFailure(
+                    $e->getTrace()[2]
+                    )
+                );
+            }
+            */
+            //die;
+            //$this->result .= sprintf('%s%s', PHP_EOL, \var_export($e->getCode(), true));
+            $msg = $this->parser->getFailure($e->getTrace()[2]);
+            $msg->setMessageText($this->textTransformer->colourize('Failure'));
+            $msg->setShortResult($this->cli->getColouredString('F', 'red'));
+            $this->history->push($msg); 
+
+
+            // \var_dump(\debug_backtrace());
+            $this->failure++;
+            //
+        } finally {
+            //var_dump($this->config->getShowColours());die;
+            if($this->config->getVerboseMessages()) {
+                echo ' expectation result: ' . $msg->getMessageText() . PHP_EOL;
+            } else {
+                echo $msg->getShortResult();
+            }
+        }
+    }
+
+    public function expectFalse(mixed $expression) 
+    {
+        $this->expect(!$expression);
+    }
+
+    public function expectTrue(mixed $expression) 
+    {
+        $this->expect($expression);
+    }
+
+    public function expectError(string $exceptionName, mixed $expression) 
+    {
+        try {
+            eval($expression);
+        } catch(\Error $e) {
+            $this->expectInstanceOf($e, $exceptionName);
+        }
+    }
+
+    public function expectException(string $exceptionName, mixed $expression)
+    {
+        try {
+            eval($expression);
+        } catch(\Exception $e) {
+            $this->expectInstanceOf($e, $exceptionName);
+        }
+        
+     }
+
+    public function expectInstanceOf(object $instance, string $classOrInterface)
+    {
+        $this->expect($instance instanceof $classOrInterface);
+    }
+
+    public function getHistory(): ListType
+    {
+        return $this->history;
+    }
+    /**
+     * @deprecated
+     */
+    public function getResult()
+    {
+
+        \var_dump($this->history);
+
+
+      /*  echo PHP_EOL . PHP_EOL . 'Summary:' . PHP_EOL;
+        if($this->success !==0)
+        echo $this->cli->getColouredString(sprintf('%u - tests successfull', $this->success) ,null , 'green') . PHP_EOL;
+        if($this->failure !==0)
+        echo $this->cli->getColouredString(sprintf('%u - tests failed', $this->failure) ,null , 'red') . PHP_EOL;
+        */
+    }
+    
+
+
+    /**
+     * Get the value of failure
+     *
+     * @return int
+     */
+    public function getFailure(): int
+    {
+        return $this->failure;
+    }
+
+    /**
+     * Get the value of success
+     *
+     * @return int
+     */
+    public function getSuccess(): int
+    {
+        return $this->success;
+    }
+}
