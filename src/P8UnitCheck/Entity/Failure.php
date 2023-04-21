@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * Class representing failed Unit check
+ * Class representing failed Unit check expectation
  * 
  * 
  * @author Sven Schrodt<sven@schrodt.club>
@@ -12,22 +12,6 @@ declare(strict_types=1);
  * @since 2023-04-19
  */
 
-
-/**
-  *  1 => 
-  *  array (
-  *  'file' => '/Users/svenschrodt/projects/P8UnitCheck/public/index.php',
-  *  'line' => 16,
-  *  'function' => 'expectFalse',
-  *  'class' => 'P8UnitCheck\\Kernel\\FoundationTest',
-  *  'type' => '->',
-  *  'args' => 
-  *  array (
-  *    0 => true,
-  *  ),
-  * ),
- *)
- */
 namespace P8UnitCheck\Entity;
 
 class Failure extends Message
@@ -38,10 +22,6 @@ class Failure extends Message
     private ?string $class;
     private ?string $type;
     private ?array $args;
-
-
-    
-
 
     /**
      * Get the value of file

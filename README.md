@@ -66,9 +66,9 @@ Based on:
 
  ## Runtime cfg
 
- - <code>unitcheck.ini</code> and 
+  - <code>unitcheck.ini</code> and 
   - via shell options  (e.g: <code>./unitcheck.php --verbose</code>)
-
+  - using setter of P8UnitCheck\Entity\Config
 
  ## Appendix 
 
@@ -77,32 +77,36 @@ Based on:
 
 ### 
 
-<code>
-
-public function checkFooIsOdd(mixed $expression, string $message = 'failed expectation that %s is odd')
+<code>public function checkFooIsOdd(mixed $expression, string $message = 'failed expectation that %s is odd')
 </code>
 
 ### Development environment 
 
  Chronicler's duty: 
 
- - Boxes: MacBookAir M1 /2020; iMac21,2 M1/2020
+ - Box: MacBookAir M1 /2020 
+ - Box: iMac21,2 M1/2020
+ - Box: Raspberry Pi 4 Model B Rev 1.1 
  - OS: Darwin Marvell 22.3.0 Darwin Kernel Version 22.3.0; RELEASE_ARM64_T8103 arm64
+ - OS: Linux raspberrypi 5.10.17-v7l+ #1403 SMP Mon Feb 22 11:33:35 GMT 2021 armv7l GNU/Linux
  - IDE: Visual Studio Code; version: 1.70.2 (Universal)
  - PHP: 8.2.4 (NTS); with Zend OPcache v8.2.0
  - Sqlite: version 3.39.5
 
 
 ### Naming convention
-All unit checks (tests) reside within a directory called <samp>check</samp>, that is parallel to the <samp>src</samp> folder. 
-The sub directories in both (<samp>src</samp> & <samp>check</samp>) are equivalent.
+All unit checks (tests) reside within a directory called <code>check</code>, that is parallel to the <code>src</code> folder. 
+The sub directories in both (<code>src</code> & <code>check</code>) are equivalent.
 
-When running checks on instances a class <samp>Foo</samp> the corresponding check class name will be   <samp>FooCheck</samp> and is stored in a file called  <samp>FooCheck.php</samp>. 
+When running checks on instances a class <code>Foo</code> the corresponding check class name will be   <code>FooCheck</code> and is stored in a file called  <code>FooCheck.php</code>. 
+
+Each check method contains at least 1 _expectation_ and is prefixed with <code>check</code> following a max. descriptive Name - e.G: <code>checkIfPlaneCanFlyWithWeightOverTenTonsAndFuelLevelBelowMinimumWhenTargetIsAntarctica(): void</code>  - led _too_ way, I know....
+
 ### Nomenclature
 
   - P8 - pointless _(not PHP8)_ ;-)
 
-  - DataSupplier -> method or function delivering testing data as array of arrays or an instance of <samp>\Iterator</samp>
+  - DataSupplier -> method or function delivering testing data as array of arrays or an instance of <code>\Iterator</code>
 
 -- 
 

@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 /**
- *  router.php - to be used with PHP Development Server 
+ *  router.php - to be used with PHP Development Server for local development/testing purposes
  * 
- * - Routing to public/index.php if requested resource does not exist as file resource within document root
- * 
- * 
+ * - Routing to public/index.php if requested resource does not exist as file resource 
+ *   in document root ($PROJECTNAME/public)
  * 
  * @author Sven Schrodt<sven@schrodt.club>
- * @link https://github.com/SchrodtSven/P7WebCollector
- * @package P7WebCollector
+ * @link https://github.com/SchrodtSven/P8UnitCheck
+ * @package P8UnitCheck
  * @version 0.1
- * @since 2022-12-30
+ * @since 2023-04-21
  */
 
  
-if (!file_exists( // if requested resource does not exist as file in document root:
-    $_SERVER['DOCUMENT_ROOT'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))
-    ) { 
-    $_SERVER['SCRIPT_NAME'] = 'index.php'; // set current script name in super global 
-    require_once 'public/index.php'; // route to public/index.php
-} else {
-    return false;
-}
+   // if requested resource does not exist as file in document root:
+   if (!file_exists($_SERVER['DOCUMENT_ROOT'] . parse_url($_SERVER['REQUEST_URI'], \PHP_URL_PATH))) { 
+       // set current script name in super global         
+       $_SERVER['SCRIPT_NAME'] = 'index.php'; 
+       // route to public/index.php   
+       require_once 'public/index.php'; 
+    } else {
+            return false;
+    }
