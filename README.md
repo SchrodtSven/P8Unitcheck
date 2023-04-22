@@ -20,6 +20,7 @@
 
 ## Outlook / Todos
  
+  - Eliminate echo, print* etc. from code -> ship  *all output* to <code>P8UnitCheck\Frontend\\*</code>
   - Adding documentation 
   - Adding comments 
   - Completing checks
