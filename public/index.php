@@ -6,7 +6,7 @@ declare (strict_types = 1);
 // Set project root as current working directory
 //chdir('../');
 require_once 'src/P8UnitCheck/Autoload.php';
-require_once 'check/FirstCheck.php';
+require_once 'check/Basix/FirstCheck.php';
 use P8UnitCheck\Entity\Config;
 use P8UnitCheck\Entity\Message;
 use P8UnitCheck\Kernel\Config\Messages;
