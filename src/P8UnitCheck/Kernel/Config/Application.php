@@ -20,7 +20,12 @@ class Application
     public const CHECK_FILE_SUFFIX = '.php';
 
     public const CHECK_METHOD_PREFIX = 'check';
+
+
+    //public const TPL_DIRECTORY = 'FileHandDocBlock.php'
     
+    public const TOOL_TPL_DIRECTORY = 'src/P8UnitCheck/Kernel/Tools/Tpl/';
+
     private StringType $shortOptions;
 
     private ListType $LongOptions;

@@ -88,6 +88,16 @@ class StringType implements \Stringable
         return $this;
     }
 
+    public function upperFirst(): self
+    {
+        $this->content = \ucfirst($this->content);
+        return $this;
+    }
+
+    public function subString(int $start, ?int $length=null): self
+    {
+        return new self(\substr($this->content, $start, $length));
+    }
     // custom functions
     public function quote(string $sign ="'"): self
     {
@@ -106,11 +116,16 @@ class StringType implements \Stringable
 
     public function begins(string $begin): bool
     {
-        return \str_starts_with($begin);
+        return \str_starts_with($this->content, $begin);
     }
 
     public function ends(string $end): bool
     {
-        return \str_ends_with($end);
+        return \str_ends_with($this->content, $end);
+    }
+
+    public function contains(string $end): bool
+    {
+        return \str_contains($this->content, $end);
     }
 }

@@ -6,35 +6,27 @@ declare (strict_types = 1);
 // Set project root as current working directory
 //chdir('../');
 require_once 'src/P8UnitCheck/Autoload.php';
-require_once 'check/Basix/FirstCheck.php';
+
+//var_dump(file_get_contents('src/P8UnitCheck/Kernel/Tools/Tpl/FileHeadDocBlock.php'));die;
+
 use P8UnitCheck\Entity\Config;
 use P8UnitCheck\Entity\Message;
 use P8UnitCheck\Kernel\Config\Messages;
 use P8UnitCheck\Type\ListType;
 use P8UnitCheck\Type\StringType;
 use P8UnitCheck\Data\TextTransformer;
+use P8UnitCheck\Kernel\Tools\TplParser;
+use P8UnitCheck\Kernel\Tools\ClassMapper;
 
+/*
+$e = new TplParser('FileHeadDocBlock'); 
+$e->DESCRIPT =' Cool features implementing class';
+$e->LONG =' Cool features implementing class lorem Ipsum foo bar bar ....';
+$e->SUPERLONG = ' Cool features implementing class lorem Ipsum foo bar bar .... FOO BAR jsdieowb  ehf eufhwei o';
+$e->DATE = (new \DateTime)->format('Y-m-d');
+echo $e;
+*/
 
-
-$baz = new TextTransformer();
-
-$foo = new Messages();
-$bar = new Message();
-echo $foo->getFailureMessage(' is not valid!');
-echo PHP_EOL;
-echo $baz->colourize('A failure is not successfull!');
-echo PHP_EOL;
-
-$a = "A \033[1;37m\033[41mfailure\033[0m is not \033[42m\033[42msuccess\033[0mfull\033[0m!";
-echo $a;
-foreach(['file', 'line', 'function', 'class', 'type', 'args'] as $item) {
-    $tmp = new StringType('    $message->set');
-    $tmp->append(ucfirst($item))
-       ->append('($parts[\'')
-       ->append($item)
-       ->append('\']) ?? null;')
-       ->append(PHP_EOL);
-    echo $tmp;
-}
-
+$foo = new ClassMapper();
+echo $foo->writeFile();
 

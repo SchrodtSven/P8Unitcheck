@@ -3,8 +3,9 @@
 declare(strict_types=1);
 /**
  *  Inspecting (reverse engineering) existing application code via PHP's Reflection API:
+ * 
  *  - getting attributes
- *  - getting test methods
+ *  - getting check methods
  *  - ....
  * 
  * @author Sven Schrodt<sven@schrodt.club>

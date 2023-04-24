@@ -18,11 +18,16 @@ if (version_compare(PHP_VERSION, '8.2.0', '<')) {
     exit(129);
 }
 
+// throw \AssertionError for failed assertiona
+ini_set('assert.exception', 1);
+
+// register auto loading
 require_once 'src/P8UnitCheck/Autoload.php';
 use P8UnitCheck\Kernel\Runner;
 use P8UnitCheck\Entity\Config;
 use P8UnitCheck\Shell\Parser; 
 
+// Run
 (new Runner(
     new Parser(),
     new Config() 

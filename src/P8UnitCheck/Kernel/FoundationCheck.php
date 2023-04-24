@@ -30,7 +30,6 @@ class FoundationCheck
 
     protected bool $verbose = false;
 
-    //@FIXME -> use checks & expectations numbering!!!
     protected int $checks = 0;
 
     protected int $expectations = 0;

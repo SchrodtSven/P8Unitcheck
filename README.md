@@ -28,9 +28,9 @@
   - Optimizing code quality & class hierarchy structure
   - Adding features:
     - Mocking objects & data structures
-    - Code coverage detection (xDebug??)
+    - Code coverage detection (xDebug or??)
     - Data supplier (PHP 8 attributes!!)
-    - attributing checks as *not complete*
+    - attributing checks as *not complete* (--> neither failed nor successfull)
     - attributing checks as *leapable* on conditions (e.g: ext pgsql is not available)
     - adding configuration via
       - .php
@@ -76,7 +76,9 @@ Based on:
 ### Example usage
 
 
-### 
+### Tools
+
+- <code>src/P8UnitCheck/Kernel/Tools/generate_class_map.php</code> - generates class map for autoloading and Factory usage
 
 <code>public function checkFooIsOdd(mixed $expression, string $message = 'failed expectation that %s is odd')
 </code>
@@ -85,15 +87,16 @@ Based on:
 
  Chronicler's duty: 
 
- - Box: MacBookAir M1 /2020 
- - Box: iMac21,2 M1/2020
- - Box: Raspberry Pi 4 Model B Rev 1.1 
+ - Box: MacBookAir M1 /2020 (PHP Development)
+ - Box: iMac21,2 M1/2020 (PHP Development)
+ - Box: Raspberry Pi 4 Model B Rev 1.1 (RDBMS, CI/CD)
  - OS: Darwin Marvell 22.3.0 Darwin Kernel Version 22.3.0; RELEASE_ARM64_T8103 arm64
  - OS: Linux raspberrypi 5.10.17-v7l+ #1403 SMP Mon Feb 22 11:33:35 GMT 2021 armv7l GNU/Linux
  - IDE: Visual Studio Code; version: 1.70.2 (Universal)
  - PHP: 8.2.4 (NTS); with Zend OPcache v8.2.0
- - Sqlite: version 3.39.5
-
+ - Java: openjdk version "11.0.18" 2023-01-17; OpenJDK Runtime Environment  & OpenJDK Server VM
+ - RDBMS: Sqlite version 3.39.5
+ - CI/CD Pipeline: Jenkins 
 
 ### Naming convention
 All unit checks (tests) reside within a directory called <code>check</code>, that is parallel to the <code>src</code> folder. 
@@ -105,9 +108,11 @@ Each check method contains at least 1 _expectation_ and is prefixed with <code>c
 
 ### Nomenclature
 
-  - P8 - pointless _(not PHP8)_ ;-)
+  - P8 - "pointless" _(not PHP8)_ ;-)
 
   - DataSupplier -> method or function delivering testing data as array of arrays or an instance of <code>\Iterator</code>
+  - CheckCase
+  - Expectation
 
 -- 
 

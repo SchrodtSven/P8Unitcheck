@@ -12,8 +12,13 @@ declare (strict_types = 1);
  */
 
 namespace P8UnitCheck\Entity;
+use P8UnitCheck\Type\HashMapType;
 
 class Options
 {
 
+    public function __construct(private HashMapType $content)
+    {
+        
+    }
 }

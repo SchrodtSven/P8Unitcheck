@@ -4,6 +4,9 @@ declare(strict_types=1);
 /**
  *  Loading check case file(s) and execute each check method
  * 
+ * 
+ * @FIXME -> clean up unused code!!!
+ * 
  * @author Sven Schrodt<sven@schrodt.club>
  * @link https://github.com/SchrodtSven/P8UnitCheck
  * @package P8UnitCheck
@@ -71,7 +74,7 @@ class CheckLoader
      */
     public function loadClass(string $path)
     {
-        echo 'FOooooooo' ;\var_dump($path);die;
+       
         $this->inspector = new ReverseEngineer($path, $this->config);
         $checkClass = $this->inspector->getCheckInstance();
         
@@ -143,6 +146,7 @@ class CheckLoader
 
     /**
      * @FIXME -> Formatting purposes to own class -> format with fixed column width for each line
+     * within sub namespace Ffrontend
      */
     public function getSummary()
     {

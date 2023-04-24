@@ -15,8 +15,6 @@ declare(strict_types=1);
 
 namespace P8UnitCheck\Kernel;
 
-ini_set('assert.exception', 1);
-
 use P8UnitCheck\Entity\Config;
 use P8UnitCheck\Shell\Parser;
 

@@ -5,4 +5,5 @@ vendor/
 # Local configs & stuff
 tmp
 tmp2
+public/
 

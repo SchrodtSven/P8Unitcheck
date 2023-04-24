@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- *  Init auto loading for current project 
+ * Auto loading for current project 
  * 
  * @author Sven Schrodt<sven@schrodt.club>
  * @link https://github.com/SchrodtSven/P8UnitCheck
@@ -28,6 +28,11 @@ class Autoload
     public const LIB_PREFIX = 'src/';
 
     /**
+     * Separator for namespaces
+     */
+    public const NAMESPACE_SEPARATOR ='\\';
+
+    /**
      * Registering AL
      *
      * @return void
@@ -40,8 +45,14 @@ class Autoload
         spl_autoload_register(function ($className) {
 
             // Check if namespace of class to be instantiated belongs to us
-            if (str_starts_with($className,  Autoload::VENDOR)) {
-                $file = self::LIB_PREFIX . str_replace('\\', '/', $className) . '.php';
+            if (str_starts_with($className,  self::VENDOR)) {
+                
+                //replace separator for namespaces with directory separator
+                $file = self::LIB_PREFIX . str_replace(
+                        self::NAMESPACE_SEPARATOR, 
+                        \DIRECTORY_SEPARATOR, 
+                        $className
+                    ) . '.php';
                
                 // Check if destination class file exists  and include it, 
                 // if not so - __do not throw__ \E*, because of AL chain!
@@ -57,7 +68,7 @@ class Autoload
     }
 }
 
-// Registering auto loader
+// Running auto loader
 (new Autoload())->registerAutoloader();
 
 
