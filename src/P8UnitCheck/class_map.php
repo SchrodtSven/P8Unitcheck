@@ -1,3 +1,4 @@
+ <?php
     return [
         'P8UnitCheck\Autoload' => 'src/P8UnitCheck/Autoload.php',
         'P8UnitCheck\class_map' => 'src/P8UnitCheck/class_map.php',

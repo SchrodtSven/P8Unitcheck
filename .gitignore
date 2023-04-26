@@ -6,4 +6,6 @@ vendor/
 tmp
 tmp2
 public/
+.DS_Store
+
 
