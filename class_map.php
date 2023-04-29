@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @link https://github.com/SchrodtSven/P8UnitCheck
  * @package P8UnitCheck
  * @version 0.1
- * @since 2023-04-22
+ * @since 2023-04-26
  */    return [
             'P8UnitCheck\Autoload' => 'src/P8UnitCheck/Autoload.php',
             'P8UnitCheck\class_map' => 'src/P8UnitCheck/class_map.php',

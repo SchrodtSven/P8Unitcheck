@@ -65,15 +65,25 @@ Based on:
  - P8UnitCheck itself ;-)
 
 
- ## Runtime cfg
+### Example usage
 
-  - <code>unitcheck.ini</code> and 
-  - via shell options  (e.g: <code>./unitcheck.php --verbose</code>)
-  - using setter of P8UnitCheck\Entity\Config
+Running one ore more check(s):
+<code>% ./phpunitcheck.php check/Data/TextTransformerCheck.php  check/Type/HashMapTypeCheck.php [...]
+</code>
 
+Running all checks in configured directory (default is check)
+ <code>
+% ./phpunitcheck.php
+</code>
  ## Appendix 
 
-### Example usage
+
+
+## Runtime cfg
+
+- <code>unitcheck.ini</code> and 
+  - via shell options  (e.g: <code>./unitcheck.php --verbose</code>)
+  - using setters of <code>P8UnitCheck\Entity\Config</code>
 
 
 ### Tools
