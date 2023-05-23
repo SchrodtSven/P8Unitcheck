@@ -18,7 +18,7 @@ if (version_compare(PHP_VERSION, '8.2.0', '<')) {
     exit(129);
 }
 
-// throw \AssertionError for failed assertiona
+// throw \AssertionError for failed assertions
 ini_set('assert.exception', 1);
 
 // register auto loading

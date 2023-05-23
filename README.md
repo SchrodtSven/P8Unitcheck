@@ -71,7 +71,7 @@ Running one ore more check(s):
 <code>% ./phpunitcheck.php check/Data/TextTransformerCheck.php  check/Type/HashMapTypeCheck.php [...]
 </code>
 
-Running all checks in configured directory (default is check)
+Running all checks in configured directory (default is <code>check</code>)
  <code>
 % ./phpunitcheck.php
 </code>
@@ -128,3 +128,62 @@ Each check method contains at least 1 _expectation_ and is prefixed with <code>c
 
  2023/04 Sven Schrodt &lt;sven@schrodt.club&gt;
  Glück auf!
+
+
+ # Stats
+
+ <pre>
+ <code>Running check case file: ./check/File/FileErrorCheck.php
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [1;37m[41mFailed[0m expectation that  false is true - FileErrorCheck::checkFoo() line: 84
+Running check case file: ./check/Shell/CliCheck.php
+ expectation result: [1;37m[41mFailed[0m expectation that  true is false - CliCheck::checkFooGarn() line: 84
+Running check case file: ./check/Basix/SecondCheck.php
+ expectation result: [42mSuccess[0m
+ expectation result: [1;37m[41mFailed[0m expectation that  true is false - SecondCheck::checkBar() line: 84
+ expectation result: [1;37m[41mFailed[0m expectation that  stdClass is instance of \DateTime - SecondCheck::checkInstanceOfFailing() line: 84
+Running check case file: ./check/Basix/FirstCheck.php
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+Running check case file: ./check/Type/HashMapTypeCheck.php
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+Running check case file: ./check/Data/TextTransformerCheck.php
+ expectation result: [42mSuccess[0m
+Running check case file: ./check/Kernel/Tools/TplParserCheck.php
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+ expectation result: [42mSuccess[0m
+
+
+[1;37m[40m                 Summary:[0m
+[0;30m[46m               16 checks [0m
+[1;33m[40m 41 expectations         [0m
+[42m 37 successfull[0m[1;37m[41m 4 failed [0m

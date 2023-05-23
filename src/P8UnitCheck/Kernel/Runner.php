@@ -28,9 +28,6 @@ class Runner
         
          $this->loader = new CheckLoader($parser->getCheckFiles(), $this->config);
         
-        // \var_dump($parser->getCheckFiles());die;
-
-        // \var_dump($this->loader->getCheckClasses());die;
          
         foreach($this->loader->getCheckClasses() as $checkClassPath)
         {
