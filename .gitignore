@@ -1,7 +1,7 @@
-# Composer files
+i# Composer files
 composer.phar
 vendor/
-
+phpunit
 # Local configs & stuff
 tmp
 tmp2
