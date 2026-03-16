@@ -13,7 +13,7 @@ class SecondCheck extends FoundationCheck
 
     public function checkBar(): void
     {
-        $this->expectFalse(is_int(23.1));
+        $this->expectFalse(is_int(23));
     }
 
 
