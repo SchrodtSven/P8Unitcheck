@@ -84,7 +84,7 @@ class FoundationCheck
         } finally {
 
             if($this->config->getVerboseMessages()) {
-                echo ' expectation result: ' . $msg->getMessageText(); 
+                echo 'Expectation result: ' . $msg->getMessageText(); 
                 if(!$msg->getIsSuccessfull()) {
                     echo $msg->getFootprint();
                 } 

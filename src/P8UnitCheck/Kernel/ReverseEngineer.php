@@ -29,38 +29,35 @@ class ReverseEngineer
     protected ListType $methods;
 
     protected ListType $checkMethods;
-    
+
     public function __construct(private string $fullpath, private Config $config)
     {
         require_once $this->fullpath;
-       $file = new StringType((new StringType($fullpath))->splitBy(\DIRECTORY_SEPARATOR)->pop());
+        $file = new StringType((new StringType($fullpath))->splitBy(\DIRECTORY_SEPARATOR)->pop());
         $file->replace(Application::CHECK_FILE_SUFFIX);
         $class = (string) $file;
         $this->checkInstance = new $class($this->config);
-        $this->methods = new ListType ([]);
-        $this->checkMethods = new ListType ([]);
+        $this->methods = new ListType([]);
+        $this->checkMethods = new ListType([]);
         $this->extractFunctionNamesFromTestClass();
     }
 
     protected function extractFunctionNamesFromTestClass(): void
     {
-        foreach( (new \ReflectionClass($this->checkInstance::class))->getMethods() as $item) {
-            if(isset($item->name)) {
+        foreach ((new \ReflectionClass($this->checkInstance::class))->getMethods() as $item) {
+            if (isset($item->name)) {
                 $this->methods->push($item->name);
             }
 
-            if(str_starts_with($item->name, Application::CHECK_METHOD_PREFIX)) {
+            if (str_starts_with($item->name, Application::CHECK_METHOD_PREFIX)) {
                 $this->checkMethods->push($item->name);
             }
         }
     }
 
 
-    public function hasDataProvider(ReflectionMethod $method)
-    {
-        
-    }
-    
+    public function hasDataProvider(ReflectionMethod $method) {}
+
 
 
     /**

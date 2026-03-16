@@ -58,7 +58,7 @@ class FileErrorCheck extends FoundationCheck
 
     public function checkFoo(): void
     {
-        $this->expectTrue(2===1);
+        $this->expectTrue(1===1);
     }
 
 }

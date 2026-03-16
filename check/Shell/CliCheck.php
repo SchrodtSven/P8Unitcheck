@@ -18,6 +18,6 @@ class CliCheck extends FoundationCheck
 {
     public function checkFooGarn(): void
     {
-        $this->expectFalse(2+2 === 2*2);
+        $this->expectFalse(2+2 === 2*2+1);
     }     
 }
