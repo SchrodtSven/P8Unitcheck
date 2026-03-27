@@ -76,7 +76,7 @@ class Cli
      * @param string $bg
      * @return string
      */
-    public function getColouredString(string $string, string $fg = null, string $bg = null): string
+    public function getColouredString(string $string, ?string $fg = null, ?string $bg = null): string
     {
         $cString = "";
 

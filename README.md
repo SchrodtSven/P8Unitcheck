@@ -117,5 +117,5 @@ Each check method contains at least 1 _expectation_ and is prefixed with <code>c
 
 --
 
- 2023/04 Sven Schrodt &lt;<sven@schrodt.club>&gt;
+ 2026/03 Sven Schrodt &lt;<sven@schrodt.nrw>&gt;
  Glück auf!

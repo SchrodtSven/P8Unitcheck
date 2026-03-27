@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @since 2023-04-09
  */
 
-if (version_compare(PHP_VERSION, '8.2.0', '<')) {
+if (version_compare(PHP_VERSION, '8..0', '<')) {
     echo 'P8UnitCheck runs on PHP 8.2+ - version found: ' . PHP_VERSION . "\n";
     exit(129);
 }
