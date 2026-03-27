@@ -115,6 +115,65 @@ Each check method contains at least 1 _expectation_ and is prefixed with <code>c
 - CheckCase
 - Expectation
 
+## Appendix
+
+### Current Check run
+
+Running check case file: ./check/File/FileErrorCheck.php
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Shell/CliCheck.php
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Basix/SecondCheck.php
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Basix/FirstCheck.php
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Type/HashMapTypeCheck.php
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Data/TextTransformerCheck.php
+Expectation result: [42mSuccess[0m
+Running check case file: ./check/Kernel/Tools/TplParserCheck.php
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+Expectation result: [42mSuccess[0m
+
+
+[1;37m[40m                 Summary:[0m
+[0;30m[46m               16 checks [0m
+[1;33m[40m 41 expectations         [0m
+[42m 41 successfull[0m
+
 --
 
  2026/03 Sven Schrodt &lt;<sven@schrodt.nrw>&gt;
